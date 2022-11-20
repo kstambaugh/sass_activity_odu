@@ -1,0 +1,146 @@
+@use 'fonts';
+@use 'colors';
+@use 'mixins';
+
+%myflex_align {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+* {
+    text-decoration: none;
+    color: inherit;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: fonts.$font-stack;
+}
+
+
+body {
+    @include mixins.set_bg(colors.$dark_green);
+    font-weight: 600;
+
+    #myIcon {
+        font-size: 1.5em;
+    }
+
+    span {
+        @include mixins.makeFancy(colors.$off_white)
+    }
+
+}
+
+
+nav {
+    @include mixins.set_flex(row, flex-end, baseline);
+    width: 100%;
+    background-color: colors.$medium_green;
+
+    #myIcon {
+        position: fixed;
+        left: 10px;
+        margin: 10px;
+    }
+
+    ul {
+        color: colors.$light_green;
+        @include mixins.set_flex(row, space-evenly, baseline);
+    }
+
+    li {
+        padding: 40px;
+        margin-left: 20px;
+        font-size: large;
+    }
+}
+
+main {
+    #title {
+        margin: 25px;
+        text-align: center;
+
+        h1 {
+            font-size: 45px;
+        }
+
+        h3 {
+            margin: 25px
+        }
+
+        ul {
+            @include mixins.set_flex(row, center, center);
+
+
+            li {
+                margin: 20px;
+            }
+        }
+    }
+}
+
+
+
+#resume_items {
+    @include mixins.set_flex(row, space-evenly, center);
+    margin-top: 50px;
+
+    #proficencies {
+        background-color: colors.$medium_green;
+        text-align: center;
+        @include mixins.set_flex(row, space-around, center);
+        @include mixins.set_image(400px, true);
+        @include mixins.bordered(colors.$off_white);
+
+        ul {
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 700;
+
+
+            li {
+                padding: 15px;
+                border-radius: 10px;
+                margin: 5px;
+
+                &:nth-child(2n) {
+                    @include mixins.set_bg(colors.$dark_green);
+
+                    &:hover {
+                        @include mixins.set_bg(colors.$light_green);
+                    }
+                }
+
+                &:nth-child(2n +1) {
+                    @include mixins.set_bg(colors.$light_green);
+
+                    &:hover {
+                        @include mixins.set_bg(colors.$dark_green);
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    #profile_picture {
+        img {
+            @include mixins.set_flex(row, space-around, center);
+            @include mixins.set_image(400px, true);
+            @include mixins.bordered(colors.$off_white);
+        }
+    }
+
+}
+
+// 10-15 SCSS variables
+// 10-15 nested selectors, with at least 2 uses of the SCSS ampersand (&)
+// 3-5 SCSS mixins
+// 2-4 SCSS functions
+// 2-4 instances of SCSS flow control directives or operators
+// 3-5 SCSS partial files, imported
+// One of the SCSS error-handling directives

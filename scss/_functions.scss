@@ -1,0 +1,11 @@
+@use 'colors';
+
+@function color-picker($color) {
+    @if(lightness($color) >70) {
+        @return colors.$dark_green;
+    }
+
+    @else {
+        @return colors.$light_green;
+    }
+}
